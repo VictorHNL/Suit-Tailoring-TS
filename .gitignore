@@ -1,0 +1,25 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Segredos e configurações locais
+.env
+*.env
+!.env.example
+
+# Django
+staticfiles/
+media/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+
+# Sistema e editor
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
