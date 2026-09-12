@@ -76,7 +76,7 @@ Ficam **fora do MVP**, mas previstos para fases posteriores: conciliação finan
 Para uma primeira versão, a melhor escolha não é iniciar com muitos microserviços. Eles elevam bastante a complexidade de deploy, observabilidade, filas, autenticação entre serviços e consistência de estoque/pagamentos. Em vez disso, começaremos com um **monólito modular**: uma aplicação única, com módulos isolados por domínio e APIs bem definidas. Ela pode ser extraída gradualmente quando houver carga e necessidades reais.
 
 ```text
-Next.js (loja e painel)  ── HTTPS ──>  Django + Django REST Framework
+Next.js (loja e painel)  ── HTTPS ──>  Spring Boot
                                           ├─ contas e permissões
                                           ├─ catálogo e mídia
                                           ├─ carrinho e pedidos
@@ -97,13 +97,13 @@ Quando a operação justificar, os candidatos naturais a serviços independentes
 |---|---|---|
 | Front-end | Next.js + TypeScript + Tailwind CSS | Performance, SEO, interfaces ricas e manutenção previsível. |
 | Interações | Motion/Framer Motion + drag nativo | Dá fluidez ao carrossel de lupa sem sacrificar acessibilidade. |
-| Back-end | Django + Django REST Framework (Python) | Excelente autenticação, permissões, ORM e administração; ideal para aprender construindo esse domínio. |
+| Back-end | Java 25 LTS + Spring Boot | POO forte, segurança, transações, APIs REST e base modular preparada para evolução distribuída. |
 | Banco | PostgreSQL | Transações robustas para estoque, pedidos e pagamentos. |
 | Tarefas assíncronas | Celery + Redis | E-mails, thumbnails, sincronizações e emissão fiscal sem travar a compra. |
 | Arquivos | S3 compatível | Fotos e vídeos fora do servidor de aplicação. |
 | Pagamento/fiscal | Adaptadores para provedores brasileiros | Evita acoplamento e permite trocar fornecedor. |
 
-O Django Admin acelera o backoffice inicial, mas a experiência final do dono será um painel próprio no front-end. FastAPI é excelente para APIs muito específicas; neste caso, Django reduz trabalho e torna o aprendizado mais completo, porque já resolve autenticação e administração com segurança.
+O painel final do dono será uma experiência própria no front-end. O Spring Boot fornece a base para segurança, APIs, persistência e observabilidade, enquanto o backoffice é construído de acordo com as necessidades da operação.
 
 ## 6. Modelo de dados inicial
 
@@ -129,9 +129,9 @@ O preço e o nome do produto também serão copiados para o item do pedido no mo
 
 ## 8. Plano de construção colaborativa
 
-Vamos construir o back-end em Python em pequenos blocos, explicando as decisões e revisando cada etapa antes da próxima:
+Vamos construir o back-end em Java em pequenos blocos, explicando as decisões e revisando cada etapa antes da próxima:
 
-1. Preparar repositório, ambiente Python e PostgreSQL; criar projeto Django e testes.
+1. Preparar JDK 25, Maven Wrapper, Spring Boot e PostgreSQL; validar o projeto e os testes.
 2. Modelar usuários, papéis e login separado do proprietário.
 3. Implementar catálogo, categorias, variações, mídia e estoque.
 4. Criar APIs de catálogo e bolsa; conectar ao front-end.
@@ -155,4 +155,3 @@ Vamos construir o back-end em Python em pequenos blocos, explicando as decisões
 - Proprietário não pode ser acessado por conta de cliente e consegue criar, alterar, clonar e arquivar um produto com variantes e mídia.
 - Estoque não fica negativo durante pedidos simultâneos.
 - A vitrine horizontal funciona com mouse, toque e teclado; o movimento não compromete a navegação em celular.
-

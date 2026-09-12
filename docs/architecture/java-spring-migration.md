@@ -1,8 +1,8 @@
-# Migração do backend para Java e Spring Boot
+# Backend em Java e Spring Boot
 
 ## Decisão
 
-O novo backend será desenvolvido em Java 25 LTS com Spring Boot 4.1.1 e Maven. O backend Django permanece versionado como histórico de aprendizado e não será apagado nesta etapa.
+O backend será desenvolvido em Java 25 LTS com Spring Boot 4.1.1 e Maven. O código Python/Django não faz parte dos arquivos atuais do projeto.
 
 ## Estrutura inicial
 
@@ -32,4 +32,4 @@ Domínios planejados: identidade, catálogo, estoque, carrinho, pedidos, CRM, fi
 
 ## Banco de dados
 
-O backend Java usará um banco PostgreSQL próprio, separado do banco usado no experimento Django. As migrações serão versionadas em `src/main/resources/db/migration` e executadas pelo Flyway.
+O backend Java usará PostgreSQL. As migrações serão versionadas em `src/main/resources/db/migration` e executadas pelo Flyway.
