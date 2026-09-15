@@ -99,7 +99,7 @@ Quando a operação justificar, os candidatos naturais a serviços independentes
 | Interações | Motion/Framer Motion + drag nativo | Dá fluidez ao carrossel de lupa sem sacrificar acessibilidade. |
 | Back-end | Java 25 LTS + Spring Boot | POO forte, segurança, transações, APIs REST e base modular preparada para evolução distribuída. |
 | Banco | PostgreSQL | Transações robustas para estoque, pedidos e pagamentos. |
-| Tarefas assíncronas | Celery + Redis | E-mails, thumbnails, sincronizações e emissão fiscal sem travar a compra. |
+| Tarefas assíncronas | Worker Java + fila persistida no PostgreSQL | Expiração e solicitações fiscais; evolução para broker/outbox conforme necessidade. |
 | Arquivos | S3 compatível | Fotos e vídeos fora do servidor de aplicação. |
 | Pagamento/fiscal | Adaptadores para provedores brasileiros | Evita acoplamento e permite trocar fornecedor. |
 
